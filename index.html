@@ -1,264 +1,380 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katharina Garcia — 3D Character Animator</title>
+  <meta name="description" content="Katharina Garcia is a 3D Character Animator and Lead Animator at ICON Creative Studios, specializing in performance, body mechanics, and acting for animation.">
 
-  <title>Katharina Garcia — 3D Character Animator | Animation Reel & Resume</title>
-  <meta name="description" content="Katharina Garcia — Lead Animator at ICON Creative Studios. 3D character animation for TV. Over 8 years of character animation experience. Experience in programming. Based in West Kelowna, BC, Canada." />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:site_name" content="Katharina Garcia — Animation Reel" />
-  <meta property="og:title" content="Katharina Garcia — 3D Character Animator | Animation Reel" />
-  <meta property="og:description" content="Lead Animator at ICON Creative Studios. 3D character animation for TV." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://katharinacg.com/" />
-  <!-- Optional: add a social share image in your repo and uncomment -->
-  <!-- <meta property="og:image" content="https://katharinacg.com/og-image.jpg" /> -->
-  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
-  <link rel="icon" href="/favicon.ico" />
-
-  <!-- Bootstrap (stable) + Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
-  <!-- Basic, modern styling -->
-  <style>
-    :root { --max: 980px; }
-    body { background: #0b0c10; color: #e8e8e8; }
-    a { color: #9ad0ff; }
-    a:hover { color: #c6e6ff; }
-
-    .container-narrow { max-width: var(--max); }
-    .nav-blur { backdrop-filter: blur(8px); background: rgba(0,0,0,.55) !important; }
-
-    .hero { padding-top: 6rem; padding-bottom: 3rem; }
-    .card-soft {
-    background: #14161b;
-    border: 1px solid rgba(255,255,255,.08);
-    color: #f5f5f5;
-    }
-
-    .muted {
-    color: rgba(255,255,255,.75);
-    }
-
-    /* Responsive video */
-    .video-wrap { position: relative; width: 100%; padding-top: 56.25%; border-radius: 14px; overflow: hidden; }
-    .video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-
-    .icon-badge {
-      width: 44px; height: 44px;
-      display: inline-flex; align-items: center; justify-content: center;
-      border-radius: 12px;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.12);
-      margin-bottom: .5rem;
-    }
-
-    footer { padding: 3rem 0; border-top: 1px solid rgba(255,255,255,.10); }
-    .muted { color: rgba(255,255,255,.75); }
-    /* Improve contrast on dark cards */
-    .card-soft h2,
-    .card-soft h3,
-    .card-soft h4,
-    .card-soft h5,
-    .card-soft h6 {
-      color: #ffffff;
-    }
-    
-    .card-soft ul,
-    .card-soft li {
-      color: #e6e6e6;
-    }
-    
-    .card-soft {
-      color: #f0f0f0;
-    }
-    background: rgba(255,255,255,.08);
-  </style>
-
-  <!-- JSON-LD (SEO) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Katharina Garcia",
-    "jobTitle":"Lead Animator",
-    "address":{"@type":"PostalAddress","addressRegion":"BC","addressCountry":"CA"},
-    "url":"https://katharinacg.com/",
-    "sameAs":[
-      "https://www.linkedin.com/in/katharinacg/",
-      "https://twitter.com/KyohKatha"
-    ]
-  }
-  </script>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top nav-blur">
-    <div class="container container-narrow">
-      <a class="navbar-brand fw-semibold" href="#top">Katharina Garcia</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
-              aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+  <!-- Confetti Canvas -->
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <!-- Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation -->
+  <header class="site-header" role="banner">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <a href="#hero" class="nav-logo" aria-label="Katharina Garcia — Home">
+        <span class="logo-k">K</span><span class="logo-dot">.</span><span class="logo-g">G</span>
+      </a>
+
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+        <span class="hamburger-line" aria-hidden="true"></span>
+        <span class="hamburger-line" aria-hidden="true"></span>
+        <span class="hamburger-line" aria-hidden="true"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="nav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#reel">Reel</a></li>
-          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
+      <ul class="nav-menu" id="nav-menu" role="menubar">
+        <li role="none"><a href="#reel" class="nav-link" role="menuitem">Demo Reel</a></li>
+        <li role="none"><a href="#works" class="nav-link" role="menuitem">Selected Works</a></li>
+        <li role="none"><a href="#about" class="nav-link" role="menuitem">About Me</a></li>
+        <li role="none"><a href="#contact" class="nav-link" role="menuitem">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section id="hero" class="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg-shapes" aria-hidden="true">
+        <div class="shape shape-circle shape-1"></div>
+        <div class="shape shape-circle shape-2"></div>
+        <div class="shape shape-star shape-3">&#10022;</div>
+        <div class="shape shape-circle shape-4"></div>
+        <div class="shape shape-star shape-5">&#10038;</div>
+        <div class="shape shape-circle shape-6"></div>
       </div>
-    </div>
-  </nav>
 
-  <!-- Hero / Reel -->
-  <main id="top" class="hero">
-    <div class="container container-narrow">
-      <header class="mb-4">
-        <h1 class="display-6 fw-semibold mb-2">3D Character Animator</h1>
-        <p class="lead muted mb-0">
-          Lead Animator at ICON Creative Studios • TV Animation • Programming experience
+      <div class="container hero-content">
+        <p class="hero-wave" aria-hidden="true">&#x1F44B;</p>
+        <h1 id="hero-heading" class="hero-title">
+          <span class="hero-greeting">Hi there! I'm</span>
+          <span class="hero-name">
+            <span class="letter-pop">K</span><span class="letter-pop">a</span><span class="letter-pop">t</span><span class="letter-pop">h</span><span class="letter-pop">a</span><span class="letter-pop">r</span><span class="letter-pop">i</span><span class="letter-pop">n</span><span class="letter-pop">a</span>
+          </span>
+        </h1>
+        <p class="hero-subtitle">
+          <span class="badge badge-pink">3D Character Animator</span>
+          <span class="badge badge-purple">Lead Animator</span>
         </p>
-      </header>
-
-      <section id="reel" class="card card-soft p-3 p-md-4 mb-4">
-        <div class="video-wrap" aria-label="Animation Reel">
-          <iframe
-            src="https://player.vimeo.com/video/1168373793?title=0&byline=0&portrait=0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowfullscreen
-            title="Katharina Garcia Animation Reel"></iframe>
+        <p class="hero-studio">at <strong>ICON Creative Studios</strong></p>
+        <div class="hero-cta">
+          <a href="#reel" class="btn btn-primary btn-wiggle">
+            <i class="fas fa-play" aria-hidden="true"></i> Watch My Reel
+          </a>
+          <a href="#works" class="btn btn-secondary btn-wiggle">
+            <i class="fas fa-sparkles" aria-hidden="true"></i> See My Work
+          </a>
         </div>
-      </section>
+      </div>
 
-      <!-- About / Skills -->
-      <section id="skills" class="card card-soft p-3 p-md-4 mb-4">
-        <h2 class="h4 fw-semibold mb-3">Hi, I’m Katharina</h2>
-        <p class="muted mb-4">
-          Thanks for watching my reel. I’m a Lead Animator at ICON Creative Studios and I work on 3D animated TV shows.
-        </p>
+      <div class="hero-scroll-indicator" aria-hidden="true">
+        <span class="scroll-text">scroll down</span>
+        <i class="fas fa-chevron-down bounce-arrow"></i>
+      </div>
+    </section>
 
-        <div class="row g-3 align-items-stretch">
-          <div class="col-md-6">
-            <div class="card card-soft h-100 p-3">
-              <h3 class="h6 fw-semibold mb-2">Shows I worked on</h3>
-              <ul class="mb-0">
-                <li>Super Monsters</li>
-                <li>Rocketeer</li>
-                <li>Action Pack</li>
-                <li>Alice in Wonderland Bakery</li>
-                <li>Ariel</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="card card-soft h-100 p-3">
-              <h3 class="h6 fw-semibold mb-2">Core strengths</h3>
-              <div class="row g-3">
-                <div class="col-12">
-                  <div class="d-flex gap-3">
-                    <div class="icon-badge" aria-hidden="true"><i class="fa fa-street-view"></i></div>
-                    <div>
-                      <div class="fw-semibold">3D Character Animation</div>
-                      <div class="muted small">Performance, body mechanics, acting, polish</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="d-flex gap-3">
-                    <div class="icon-badge" aria-hidden="true"><i class="fa fa-heart"></i></div>
-                    <div>
-                      <div class="fw-semibold">Love challenging shots</div>
-                      <div class="muted small">Complexity, problem-solving, iteration</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="d-flex gap-3">
-                    <div class="icon-badge" aria-hidden="true"><i class="fa fa-thumb-tack"></i></div>
-                    <div>
-                      <div class="fw-semibold">Detail-oriented</div>
-                      <div class="muted small">Notes, consistency, multi-tasking</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <hr class="border-light border-opacity-10 my-3">
-
-              <div class="d-flex align-items-center gap-3">
-                <img src="https://66.media.tumblr.com/7fb0b0d55f918c345ed3fa841bd7a73f/tumblr_psb1vvRu9n1rlz5wjo1_100.png"
-                     alt="Animation Mentor" width="44" height="44" style="border-radius:10px;">
-                <div>
-                  <div class="fw-semibold">Animation Mentor</div>
-                  <div class="muted small">Alumna</div>
-                </div>
-              </div>
-
+    <!-- Demo Reel Section -->
+    <section id="reel" class="section reel-section" aria-labelledby="reel-heading">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 id="reel-heading" class="section-title">
+            <span class="title-icon" aria-hidden="true">&#127916;</span>
+            Demo Reel
+          </h2>
+          <p class="section-subtitle">Where characters come to life!</p>
+        </div>
+        <div class="reel-wrapper reveal">
+          <div class="reel-frame">
+            <div class="video-container">
+              <iframe
+                src="https://player.vimeo.com/video/1168373793?title=0&byline=0&portrait=0"
+                title="Katharina Garcia — Animation Demo Reel"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Projects -->
-      <section id="projects" class="card card-soft p-3 p-md-4 mb-5">
-        <h2 class="h4 fw-semibold mb-3">Projects</h2>
+    <!-- Selected Works Section -->
+    <section id="works" class="section works-section" aria-labelledby="works-heading">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 id="works-heading" class="section-title">
+            <span class="title-icon" aria-hidden="true">&#127775;</span>
+            Selected Works
+          </h2>
+          <p class="section-subtitle">Shows I've brought characters to life on!</p>
+        </div>
 
-        <div class="mb-3">
-          <div class="fw-semibold">Finished Indie Projects</div>
-          <div class="muted">
-            <a href="https://www.artella.com/#/project/48fa5283-0035-47c4-a4ce-435b2a0f41b6/overview" target="_blank" rel="noopener">
-              Wild Side (Animation Short)
+        <div class="works-grid" role="list">
+          <!-- Ariel -->
+          <article class="work-card reveal" role="listitem">
+            <button class="work-card-btn" aria-label="View details for Ariel" data-show="Ariel" data-role="Character Animator" data-video="">
+              <div class="work-card-poster">
+                <img src="https://image.tmdb.org/t/p/w500/wJ1yJzicptseeCyCVYvk2Dz74b4.jpg" alt="Ariel show poster" loading="lazy" width="500" height="750">
+                <div class="work-card-overlay">
+                  <i class="fas fa-expand" aria-hidden="true"></i>
+                  <span>View Details</span>
+                </div>
+              </div>
+              <div class="work-card-info">
+                <h3 class="work-card-title">Ariel</h3>
+                <p class="work-card-role">Character Animator</p>
+              </div>
+            </button>
+          </article>
+
+          <!-- Action Pack -->
+          <article class="work-card reveal" role="listitem">
+            <button class="work-card-btn" aria-label="View details for Action Pack" data-show="Action Pack" data-role="Character Animator" data-video="">
+              <div class="work-card-poster">
+                <img src="https://image.tmdb.org/t/p/w500/uuDysbuWHcg2Xt5a0JsqAxeGH1X.jpg" alt="Action Pack show poster" loading="lazy" width="500" height="750">
+                <div class="work-card-overlay">
+                  <i class="fas fa-expand" aria-hidden="true"></i>
+                  <span>View Details</span>
+                </div>
+              </div>
+              <div class="work-card-info">
+                <h3 class="work-card-title">Action Pack</h3>
+                <p class="work-card-role">Character Animator</p>
+              </div>
+            </button>
+          </article>
+
+          <!-- Alice's Wonderland Bakery -->
+          <article class="work-card reveal" role="listitem">
+            <button class="work-card-btn" aria-label="View details for Alice's Wonderland Bakery" data-show="Alice's Wonderland Bakery" data-role="Character Animator" data-video="">
+              <div class="work-card-poster">
+                <img src="https://image.tmdb.org/t/p/w500/gZCirprTOUIHYnKAMU2WwPtVh5j.jpg" alt="Alice's Wonderland Bakery show poster" loading="lazy" width="500" height="750">
+                <div class="work-card-overlay">
+                  <i class="fas fa-expand" aria-hidden="true"></i>
+                  <span>View Details</span>
+                </div>
+              </div>
+              <div class="work-card-info">
+                <h3 class="work-card-title">Alice's Wonderland Bakery</h3>
+                <p class="work-card-role">Character Animator</p>
+              </div>
+            </button>
+          </article>
+
+          <!-- Super Monsters -->
+          <article class="work-card reveal" role="listitem">
+            <button class="work-card-btn" aria-label="View details for Super Monsters" data-show="Super Monsters" data-role="Character Animator" data-video="">
+              <div class="work-card-poster">
+                <img src="https://image.tmdb.org/t/p/w500/uB0Nxqva9znFojlLBgBJtEx6wIB.jpg" alt="Super Monsters show poster" loading="lazy" width="500" height="750">
+                <div class="work-card-overlay">
+                  <i class="fas fa-expand" aria-hidden="true"></i>
+                  <span>View Details</span>
+                </div>
+              </div>
+              <div class="work-card-info">
+                <h3 class="work-card-title">Super Monsters</h3>
+                <p class="work-card-role">Character Animator</p>
+              </div>
+            </button>
+          </article>
+
+          <!-- The Rocketeer -->
+          <article class="work-card reveal" role="listitem">
+            <button class="work-card-btn" aria-label="View details for The Rocketeer" data-show="The Rocketeer" data-role="Character Animator" data-video="">
+              <div class="work-card-poster">
+                <img src="https://image.tmdb.org/t/p/w500/jtXnWs7zOyde3VYEvz9eDWGPvZ7.jpg" alt="The Rocketeer show poster" loading="lazy" width="500" height="750">
+                <div class="work-card-overlay">
+                  <i class="fas fa-expand" aria-hidden="true"></i>
+                  <span>View Details</span>
+                </div>
+              </div>
+              <div class="work-card-info">
+                <h3 class="work-card-title">The Rocketeer</h3>
+                <p class="work-card-role">Character Animator</p>
+              </div>
+            </button>
+          </article>
+
+          <!-- Wild Side -->
+          <article class="work-card reveal" role="listitem">
+            <a href="https://www.artella.com/#/project/48fa5283-0035-47c4-a4ce-435b2a0f41b6/overview" class="work-card-btn work-card-link" target="_blank" rel="noopener noreferrer" aria-label="View Wild Side project on Artella (opens in new tab)">
+              <div class="work-card-poster work-card-placeholder">
+                <div class="placeholder-content" aria-hidden="true">
+                  <i class="fas fa-paw placeholder-icon"></i>
+                  <span class="placeholder-sparkle placeholder-sparkle-1">&#10022;</span>
+                  <span class="placeholder-sparkle placeholder-sparkle-2">&#10038;</span>
+                  <span class="placeholder-sparkle placeholder-sparkle-3">&#10022;</span>
+                </div>
+                <div class="work-card-overlay">
+                  <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                  <span>View on Artella</span>
+                </div>
+              </div>
+              <div class="work-card-info">
+                <h3 class="work-card-title">Wild Side</h3>
+                <p class="work-card-role">Character Animator <i class="fas fa-external-link-alt" aria-hidden="true" style="font-size: 0.7em;"></i></p>
+              </div>
             </a>
-          </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="section about-section" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 id="about-heading" class="section-title">
+            <span class="title-icon" aria-hidden="true">&#128171;</span>
+            About Me
+          </h2>
+          <p class="section-subtitle">The person behind the characters!</p>
         </div>
 
-        <div class="muted">
-          For more details see my
-          <a href="https://www.dropbox.com/s/2tpqz92gnvmpmj4/Resume2019.pdf?dl=0" target="_blank" rel="noopener">Resume</a>.
-        </div>
-      </section>
+        <div class="about-layout">
+          <div class="about-photo-col reveal">
+            <div class="about-photo-frame">
+              <img src="https://media.licdn.com/dms/image/v2/D5603AQE_dkUTcrf5-A/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1690931867222?e=1773878400&v=beta&t=xt4p9hrbBIjGUxS6qjPcfISELrHQhvwRXE64PFzd6Uc" alt="Katharina Garcia headshot" width="200" height="200" class="about-photo" loading="lazy">
+              <div class="photo-deco photo-deco-1" aria-hidden="true">&#10022;</div>
+              <div class="photo-deco photo-deco-2" aria-hidden="true">&#10038;</div>
+              <div class="photo-deco photo-deco-3" aria-hidden="true">&#9733;</div>
+            </div>
 
-      <!-- Footer / Contact -->
-      <footer id="contact">
-        <div class="row g-4">
-          <div class="col-md-4">
-            <h2 class="h6 fw-semibold">Based in</h2>
-            <p class="muted mb-0">
-              West Kelowna, BC<br/>Canada
-            </p>
+            <div class="about-education">
+              <h3 class="education-title"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Education</h3>
+              <div class="education-item">
+                <img src="https://66.media.tumblr.com/7fb0b0d55f918c345ed3fa841bd7a73f/tumblr_psb1vvRu9n1rlz5wjo1_100.png" alt="Animation Mentor logo" class="education-logo" width="50" height="50" loading="lazy">
+                <div>
+                  <strong>Animation Mentor</strong>
+                  <p>Character Animation Program</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="col-md-4">
-            <h2 class="h6 fw-semibold">Links</h2>
-            <p class="mb-0">
-              <a href="https://www.linkedin.com/in/katharinacg/" target="_blank" rel="noopener">LinkedIn</a><br/>
-              <a href="https://twitter.com/KyohKatha" target="_blank" rel="noopener">Twitter</a><br/>
-              <a href="https://facebook.com/kathacg" target="_blank" rel="noopener">Facebook</a>
-            </p>
-          </div>
-          <div class="col-md-4">
-            <h2 class="h6 fw-semibold">Contact</h2>
-            <p class="muted mb-0">
-              <a href="mailto:katharinacg@gmail.com">katharinacg@gmail.com</a><br/>
-              
-            </p>
+
+          <div class="about-text-col reveal">
+            <div class="about-bio">
+              <p>I'm a <strong>3D Character Animator</strong> and <strong>Lead Animator</strong> at <strong>ICON Creative Studios</strong>, based in the beautiful <i class="fas fa-mountain-sun" aria-hidden="true"></i> West Kelowna, BC, Canada.</p>
+              <p>I've had the amazing opportunity to breathe life into characters on shows like <strong>Super Monsters</strong>, <strong>The Rocketeer</strong>, <strong>Action Pack</strong>, <strong>Alice's Wonderland Bakery</strong>, and <strong>Ariel</strong>. Each project has been a playground for storytelling through movement!</p>
+            </div>
+
+            <div class="strengths-grid">
+              <div class="strength-card">
+                <div class="strength-icon" aria-hidden="true">
+                  <i class="fas fa-person-running"></i>
+                </div>
+                <h3 class="strength-title">3D Character Animation</h3>
+                <p class="strength-desc">Performance, body mechanics, acting, and polish — making characters feel alive and believable.</p>
+              </div>
+              <div class="strength-card">
+                <div class="strength-icon" aria-hidden="true">
+                  <i class="fas fa-puzzle-piece"></i>
+                </div>
+                <h3 class="strength-title">Love Challenging Shots</h3>
+                <p class="strength-desc">Complexity, problem-solving, and iteration — the tougher the shot, the more fun it is!</p>
+              </div>
+              <div class="strength-card">
+                <div class="strength-icon" aria-hidden="true">
+                  <i class="fas fa-bullseye"></i>
+                </div>
+                <h3 class="strength-title">Detail-Oriented</h3>
+                <p class="strength-desc">Meticulous with notes, consistency, and multi-tasking — nothing slips through the cracks.</p>
+              </div>
+            </div>
+
+            <div class="about-cta">
+              <a href="https://www.dropbox.com/s/2tpqz92gnvmpmj4/Resume2019.pdf?dl=0" class="btn btn-primary btn-wiggle" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-file-arrow-down" aria-hidden="true"></i> Download Resume
+              </a>
+            </div>
           </div>
         </div>
-      </footer>
-    </div>
+      </div>
+    </section>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Contact / Footer -->
+  <footer id="contact" class="footer" role="contentinfo" aria-labelledby="contact-heading">
+    <div class="footer-shapes" aria-hidden="true">
+      <div class="shape shape-circle footer-shape-1"></div>
+      <div class="shape shape-circle footer-shape-2"></div>
+    </div>
+    <div class="container">
+      <div class="footer-content reveal">
+        <h2 id="contact-heading" class="footer-title">
+          <span class="title-icon" aria-hidden="true">&#128140;</span>
+          Let's Connect!
+        </h2>
+        <p class="footer-text">Got an exciting project or just want to say hi? I'd love to hear from you!</p>
+
+        <div class="footer-socials" role="list" aria-label="Social media links">
+          <a href="mailto:katharinacg@gmail.com" class="social-link social-email" role="listitem" aria-label="Send email to Katharina">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+            <span class="social-label">Email</span>
+          </a>
+          <a href="https://www.linkedin.com/in/katharinacg/" class="social-link social-linkedin" role="listitem" target="_blank" rel="noopener noreferrer" aria-label="Katharina's LinkedIn profile (opens in new tab)">
+            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+            <span class="social-label">LinkedIn</span>
+          </a>
+          <a href="https://twitter.com/KyohKatha" class="social-link social-twitter" role="listitem" target="_blank" rel="noopener noreferrer" aria-label="Katharina's Twitter profile (opens in new tab)">
+            <i class="fab fa-twitter" aria-hidden="true"></i>
+            <span class="social-label">Twitter</span>
+          </a>
+          <a href="https://facebook.com/kathacg" class="social-link social-facebook" role="listitem" target="_blank" rel="noopener noreferrer" aria-label="Katharina's Facebook profile (opens in new tab)">
+            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            <span class="social-label">Facebook</span>
+          </a>
+        </div>
+
+        <div class="footer-location">
+          <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+          West Kelowna, BC, Canada
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="footer-year">2026</span> Katharina Garcia. Made with <span aria-label="love" class="heart-beat">&#10084;&#65039;</span> and a whole lot of keyframes.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Work Detail Modal -->
+  <div class="modal-overlay" id="work-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close-btn" aria-label="Close dialog">
+        <i class="fas fa-xmark" aria-hidden="true"></i>
+      </button>
+      <div class="modal-body">
+        <h3 id="modal-title" class="modal-show-title"></h3>
+        <p class="modal-show-role"></p>
+        <div class="modal-video-container" id="modal-video-container">
+          <!-- Video iframe injected via JS if available -->
+        </div>
+        <div class="modal-no-video" id="modal-no-video">
+          <div class="modal-no-video-icon" aria-hidden="true">
+            <i class="fas fa-film"></i>
+          </div>
+          <p>Clips from this show are included in the <a href="#reel" class="modal-reel-link">Demo Reel</a> above!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
-
 </html>
-
-
-
